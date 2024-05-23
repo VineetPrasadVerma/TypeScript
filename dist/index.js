@@ -42,3 +42,61 @@ function addTogether(val) {
     return val + val;
 }
 console.log(addTogether(3));
+let hsla;
+hsla = [false, "100%", "50%", 4];
+function useCords() {
+    return [1, 2];
+}
+//named tuples
+let human;
+human = ["vin", 25];
+const authorOne = {
+    id: 1,
+    name: "mario",
+    avatar: "/img/mario.jpg",
+    type: "author",
+};
+const newPost = {
+    id: 1,
+    type: "post",
+    title: "new post",
+    tags: ["tech", "game"],
+    author: authorOne,
+    created_at: new Date(),
+};
+let posts = [];
+posts.push(newPost);
+const userOne = {
+    name: "maio",
+    score: 54,
+};
+//union
+let id;
+id = 1;
+id = "2";
+let anotherId = "1ergd453s";
+anotherId = 2;
+// union type pitfall
+function swapId(id) {
+    // can only use method and props common to bith string and number
+    // return parseInt(id)
+    if (typeof id === "string") {
+        return parseInt(id);
+    }
+    else {
+        return id.toString();
+    }
+}
+console.log(swapId("4"));
+console.log(swapId(5));
+//typeGuards
+function print(value) {
+    console.log(value.id);
+    if (value.type === 'post') {
+        console.log(value.created_at);
+    }
+    else {
+        console.log(value.name);
+    }
+}
+print(newPost);
